@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Enas</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{ margin:0; font-family:'Cairo',sans-serif; background:linear-gradient(#ffd6eb,#fff); color:#333; direction:rtl; padding-top:350px; }
+header{ background-image:url('yona.jpeg'); background-size:cover; background-position:center; padding:80px 20px; text-align:center; color:white; position:fixed; top:0; left:0; width:100%; z-index:10; text-shadow:2px 2px 8px rgba(0,0,0,0.7); transition: top 0.5s ease; box-shadow:0 4px 20px rgba(0,0,0,0.4); backdrop-filter: blur(6px); background-color: rgba(0,0,0,0.3); }
+nav{ display:flex; gap:15px; margin-top:20px; justify-content:center; flex-wrap:wrap; }
+nav a{ color:white; text-decoration:none; font-weight:bold; background:rgba(0,0,0,0.25); padding:12px 18px; border-radius:25px; font-size:1.6rem; }
+header h1{margin:0;font-size:2.5rem;}
+header p{margin:5px 0 0;font-size:1.3rem;}
+
+section{padding:40px 15px;text-align:center;}
+.card{ background:white; border-radius:25px; padding:25px; margin:20px auto; max-width:750px; box-shadow:0 10px 25px rgba(0,0,0,0.1); }
+.anime{border:3px dashed #ff8fc7;}
+
+#messagesBox { 
+    position:relative; 
+    border-radius:30px; 
+    padding:35px; 
+    margin:25px auto; 
+    max-width:820px; 
+    min-height:450px; 
+    background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('friends.jpeg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: local;
+}
+
+.message{ background:rgba(255,255,255,0.92); border-radius:22px; padding:18px; margin:15px 0; text-align:right; box-shadow:0 8px 18px rgba(0,0,0,0.1); position:relative; animation: softIn 0.9s ease-out both; }
+.message b{color:#ff4f9a;font-size:18px;}
+.message-text{ white-space: pre-line; line-height:1.9; animation: breathe 7s ease-in-out infinite; }
+
+#messagesBox .message:nth-child(-n+6){border:3px solid #b11226;} 
+#messagesBox .message:nth-child(n+7):not(.newMessage){border:3px solid #d4af37;}
+
+.reply{ background:#ffecf7; border-radius:18px; padding:12px; margin:8px 0 0 30px; text-align:right; font-size:0.9rem; color:#333; }
+.reply b{color:#d6336c; font-size:15px;}
+.replyForm input, .replyForm textarea{ width:80%; padding:6px; margin:4px 0; border-radius:10px; border:1px solid #ff9acb; font-size:0.85rem; }
+.replyForm button{ padding:5px 12px; border-radius:12px; border:none; background:#ff6fae; color:white; cursor:pointer; font-size:0.85rem; }
+
+input,textarea{width:90%;padding:10px;border-radius:15px;border:2px solid #ff9acb;margin:10px 0;}
+
+#wishSec {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('anos.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+#wishSec h2 { color: #fff !important; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+
+textarea#wishInput{ background: rgba(255,255,255,0.8); font-weight: bold; height: 150px; border: 2px solid #ff6fae; color: #000; }
+
+button{background:#ff6fae;color:white;border:none;padding:10px 25px;border-radius:20px;cursor:pointer;}
+
+@keyframes softIn{from{opacity:0;transform:translateY(18px);} to{opacity:1;transform:translateY(0);}}
+@keyframes breathe{0%,100%{transform:scale(1);}50%{transform:scale(1.01);}}
+
+.sakura{position:fixed;top:-10%;width:12px;height:12px;background:rgba(255,182,193,0.85);border-radius:50% 50% 50% 0;transform:rotate(45deg);pointer-events:none;z-index:9999;animation: fall 10s linear, sway 4s ease-in-out infinite;}
+@keyframes fall{to{top:110%;}}
+@keyframes sway{0%{transform:translateX(0) rotate(45deg);}50%{transform:translateX(30px) rotate(60deg);}100%{transform:translateX(0) rotate(45deg);}}
+
+.sakura-burst{position:fixed;width:12px;height:12px;background:red;clip-path: polygon(50% 0%, 61% 10%, 70% 25%, 70% 45%,50% 70%, 30% 45%, 30% 25%, 39% 10%);pointer-events:none;z-index:10001;animation: burst 1.5s ease-out forwards;}
+@keyframes burst{from{opacity:1;transform:translate(0,0) rotate(0deg) scale(1);} to{opacity:0;transform:translate(var(--x), var(--y)) rotate(var(--r)) scale(0.6);}}
+
+.welcome-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);display:flex;align-items:center;justify-content:center;z-index:10000;}
+.welcome-box{background:white;padding:30px;border-radius:25px;max-width:500px;text-align:center;line-height:2;}
+@media(max-width:768px){body{padding-top:260px;} header h1{font-size:1.8rem;} nav a{font-size:1.1rem;}}
+footer{text-align:center;padding:20px;color:#999;}
+</style>
+</head>
+<body>
+
+<header id="mainHeader">
+    <h1>🎉 Happy Birthday Enas 🎉</h1>
+    <p>كل عام وأنتِ بألف خير يا إنوس</p>
+    <nav>
+        <a href="#messages">💌 معايدات</a>
+        <a href="#song">🎵 الأغنية</a>
+        <a href="#addGSec">✍️ إضافة معايدة</a>
+        <a href="#wishSec">🌟 تمني أمنية</a>
+    </nav>
+</header>
+
+<section class="card anime">
+    <h2>🌸 كل عام وأنتِ بألف خير يا إنوس 🌸</h2>
+    <p>هذا الموقع صُنع بكل الحب خصيصًا ليومك المميز 💖</p>
+</section>
+
+<section id="messages">
+    <h2>💌 معايدات الأصدقاء</h2>
+    <div class="card anime" id="messagesBox"></div>
+</section>
+
+<section id="song" class="card anime" style="background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('vegeta.png'); background-size: cover; background-position: center;">
+    <h2 style="color:white !important;">🎵 Birthday Song</h2>
+    <button onclick="window.open('https://drive.google.com/file/d/1UICGdCcVwqBYtQGLMbCeXu1GBRQDt-IA/view','_blank')">▶️ تشغيل الأغنية</button>
+</section>
+
+<section id="addGSec" class="card anime">
+    <h2>✍️ إضافة معايدة</h2>
+    <input type="password" id="passG" placeholder="ادخل كلمة السر">
+    <button onclick="unlockG()">فتح</button>
+    <div id="divG" style="display:none;">
+        <input type="text" id="nameG" placeholder="اسمك">
+        <textarea id="textG" placeholder="اكتب معايدتك"></textarea>
+        <button onclick="sendG()">إرسال</button>
+    </div>
+</section>
+
+<section id="wishSec" class="card anime">
+    <h2>🌟 تمني أمنيتك يا أميرة 🌟</h2>
+    <input type="password" id="passW" placeholder="ادخل كلمة السر">
+    <button onclick="unlockW()">فتح</button>
+    <div id="divW" style="display:none;">
+        <textarea id="wishInput" placeholder="انوس تمني الأمنية التي تريدينها وسأقوم بتحقيقها ايتها الاميرة"></textarea>
+        <button onclick="sendW()">إرسال الأمنية سرًا</button>
+    </div>
+</section>
+
+<footer>🌸صُنع بكل الحب خصيصًا لكي انووس انتي غالية كثير على قلبي وكل شخص هنا يحبك كمان افرحي هذا يومك 🌸</footer>
+
+<div id="welcomeOnce" class="welcome-overlay">
+  <div class="welcome-box anime">
+    <p>💌<br><br>وجودك هنا أسعدني كثيرًا…<br>شكرًا لك أيها الزائر، سواء كنت صديقًا<br>أو صاحب هذا اليوم المدهش بالكامل 🌸<br><br>هذا لكِ يا إنوس…<br>هذا يعني لي الكثير أن تكون جزءًا من هذا اليوم<br>لأنك قررت أن تتواجد في هذا اليوم المميز<br>بالنسبة لي ولنا جميعًا على ما أعتقد 💖</p>
+    <button id="closeWelcomeBtn">💗 شكرًا</button>
+  </div>
+</div>
+
+<button id="showWelcomeBtn" style="position:fixed;bottom:20px;left:20px;padding:10px 15px;background:#ff6fae;color:white;border:none;border-radius:15px;cursor:pointer;z-index:10002;box-shadow:0 4px 15px rgba(0,0,0,0.3);font-size:0.85rem;">💌 رسالة الترحيب</button>
+
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+const SUPABASE_URL = "https://irflkjpjztkxzjixyezd.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlyZmxranBqenRreHpqaXh5ZXpkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc5MDI0NjcsImV4cCI6MjA4MzQ3ODQ2N30.wjPTzbPFQPO-pF7Psud0HtNF6auCStvtUo3pefizEIU";
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const box = document.getElementById("messagesBox");
+
+async function loadMessages(){
+    box.innerHTML = "";
+    const { data: messages, error } = await supabase
+        .from('messages')
+        .select('*')
+        .eq('type','public')
+        .order('order_index', { ascending: true })
+        .limit(1000);
+    if(error){ box.innerHTML="<p style='color:red'>خطأ في تحميل المعايدات</p>"; return; }
+
+    const { data: replies } = await supabase.from('replies').select('*');
+
+    messages.forEach(m => {
+        const msgDiv = document.createElement("div");
+        msgDiv.classList.add("message");
+
+        /* 🔧 التعديل الوحيد هنا */
+        msgDiv.innerHTML = `<b>${m.name}</b><br><div class="message-text">${m.text.replace(/\n/g,"<br>")}</div>`;
+
+        const rc = document.createElement("div");
+        replies.filter(r => r.parent === m.id).forEach(r=>{
+            const rDiv = document.createElement("div"); 
+            rDiv.className="reply";
+            rDiv.innerHTML = `<b>${r.name}</b><br>${r.text}`; 
+            rc.appendChild(rDiv);
+        });
+        msgDiv.appendChild(rc);
+
+        const rf = document.createElement("div"); 
+        rf.className = "replyForm";
+        rf.innerHTML = `<input type="text" placeholder="اسمك" class="rn"><textarea placeholder="ردك" class="rt"></textarea><button>إرسال</button>`;
+        rf.querySelector("button").onclick = async () => {
+            const name = rf.querySelector(".rn").value;
+            const text = rf.querySelector(".rt").value;
+            if(!name || !text) return;
+            await supabase.from('replies').insert([{ parent: m.id, name, text, time: new Date() }]);
+            loadMessages();
+        };
+        msgDiv.appendChild(rf);
+        box.appendChild(msgDiv);
+    });
+}
+
+window.unlockG = () => { if(document.getElementById("passG").value==="1701") document.getElementById("divG").style.display="block"; else alert("❌"); };
+window.sendG = async () => {
+    const n=document.getElementById("nameG").value; const t=document.getElementById("textG").value;
+    if(!n||!t)return;
+    const { data:last } = await supabase.from('messages').select('order_index').order('order_index',{ascending:false}).limit(1);
+    const nextIndex = last && last[0]? last[0].order_index+1 : 1;
+    await supabase.from('messages').insert([{name:n,text:t,type:'public',order_index:nextIndex,time:new Date()}]);
+    loadMessages();
+};
+
+window.unlockW = () => { if(document.getElementById("passW").value==="17012007") document.getElementById("divW").style.display="block"; else alert("❌"); };
+window.sendW = async () => { const w=document.getElementById("wishInput").value; if(!w)return; await supabase.from('private_wishes').insert([{ name:"🔒 أمنية إنوس", wish:w, time:new Date() }]); alert("تم إرسال أمنيتك بنجاح 💖"); document.getElementById("wishInput").value=""; };
+
+loadMessages();
+
+window.addEventListener("scroll",()=>{const h=document.getElementById("mainHeader"); h.style.top=(window.scrollY===0)?"0":"-300px";});
+
+setInterval(()=>{const s=document.createElement("div");s.className="sakura";s.style.left=Math.random()*100+"vw";document.body.appendChild(s);setTimeout(()=>s.remove(),10000);},900);
+
+function sakuraBurst(x,y){for(let i=0;i<30;i++){const p=document.createElement("div");p.className="sakura-burst";const angle=Math.random()*2*Math.PI; const radius=Math.random()*120+60; const dx=Math.cos(angle)*radius+"px",dy=Math.sin(angle)*radius+"px",r=Math.random()*360+"deg"; p.style.setProperty("--x",dx); p.style.setProperty("--y",dy); p.style.setProperty("--r",r); p.style.left=x+"px"; p.style.top=y+"px"; document.body.appendChild(p); setTimeout(()=>p.remove(),1500);}}
+
+const wel=document.getElementById("welcomeOnce");const btnClose=document.getElementById("closeWelcomeBtn");const boxWel=wel.querySelector(".welcome-box");
+if(localStorage.getItem("seenWelcome")) wel.style.display="none";
+btnClose.onclick=()=>{const rect=boxWel.getBoundingClientRect(); sakuraBurst(rect.left+rect.width/2,rect.top+rect.height/2); wel.style.display="none"; localStorage.setItem("seenWelcome","true");};
+document.getElementById("showWelcomeBtn").onclick=()=>{wel.style.display="flex";localStorage.removeItem("seenWelcome");};
+</script>
+</body>
+</html>
